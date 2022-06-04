@@ -14,7 +14,14 @@ import cv2
 import numpy as np
 import collections
 
-DEFAULT_ENV_NAME = "Breakout-v0" 
+import sys
+
+if len(sys.argv) > 1:
+    DEFAULT_ENV_NAME = sys.argv[1]
+    model= sys.argv[2]
+else:
+    DEFAULT_ENV_NAME = "Breakout-v0"
+    model= DEFAULT_ENV_NAME +'-best.dat'
 FPS = 25
 # Taken from 
 # https://github.com/PacktPublishing/Deep-Reinforcement-Learning-Hands-On/blob/master/Chapter06/lib/wrappers.py
@@ -122,22 +129,9 @@ class ScaledFloatFrame(gym.ObservationWrapper):
 
 def make_env(env_name,render_mode=None):
     if render_mode:
-        env = gym.make(env_name, render_mode=render_mode)
+        env = gym.make(env_name, full_action_space=True, render_mode=render_mode)
     else:
-        env = gym.make(env_name)
-    env = MaxAndSkipEnv(env)
-    env = FireResetEnv(env)
-    env = ProcessFrame84(env)
-    env = ImageToPyTorch(env)
-    env = BufferWrapper(env, 4)
-    return ScaledFloatFrame(env)
-
-
-def make_env(env_name,render_mode=None):
-    if render_mode:
-        env = gym.make(env_name, render_mode=render_mode)
-    else:
-        env = gym.make(env_name)
+        env = gym.make(env_name, full_action_space=True)
     env = MaxAndSkipEnv(env)
     env = FireResetEnv(env)
     env = ProcessFrame84(env)
@@ -173,8 +167,6 @@ class DQN(nn.Module):
         conv_out = self.conv(x).view(x.size()[0], -1)
         return self.fc(conv_out)
 
-
-model= DEFAULT_ENV_NAME +'-best.dat'
 record_folder="video"  
 visualize=True
 
