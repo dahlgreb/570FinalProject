@@ -33,4 +33,10 @@ Have fun!
 
 ## How to Run Training
     
-Training was done in the DRL_DQN notebooks. Transfer learning is enabled by passing the path to trained model weights in a .dat file to the DQN constructor. 
+Training was done in the DRL_DQN notebooks. Transfer learning is enabled by passing the path to trained model weights in a .dat file to the DQN constructor.
+
+Training can be done locally with a properly configured environment and fairly beefy hardware or you can just run on [Google Colab](https://colab.research.google.com/github/dahlgreb/570FinalProject/blob/master/training/DRL_DQN_pong_transfer.ipynb). Running on colab may require downloading model weights from this repo and uploading to Colab.
+
+## Results
+
+You can find some of our results in the screenshots section.
