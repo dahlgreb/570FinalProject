@@ -1,6 +1,8 @@
 # CSC 570 Final Project - Cal Poly
 Instructor: Dr. Rodrigo Canaan
 
+Team Members: Ben Dahlgren, Sanjana Gundala, Gabe Hyun, Sean Nesbit
+
 ## Resources
 - OpenAI Gym (https://www.gymlibrary.ml/)
 - Pytorch(https://pytorch.org/)
