@@ -23,9 +23,11 @@ Packages
 > python run_sim.py \<atari-game-code\> \<model-path\>
 
 The game codes are the following:
+
     Breakout: "Breakout-v0"
     Pong: "Pong-v0"
     Space Invaders: "SpaceInvaders-v0"
+    
 
 The models can be found in the model_weights directory.
 
